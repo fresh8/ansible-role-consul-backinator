@@ -16,6 +16,7 @@ install:
 - pip install molecule
 
 script:
+- cd ../ && mv ansible-role-consul-backinator kostyrevaa.consul-backinator
 - molecule test
 
 notifications:
