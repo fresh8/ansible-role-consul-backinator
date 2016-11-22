@@ -14,7 +14,7 @@
     dest: "{{ backinator_download_dir }}/{{ backinator_pkg }}"
 
 - name: Unzip consul-backinator to installation directory
-  unarchive: 
+  unarchive:
     src:  "{{ backinator_download_dir }}/{{ backinator_pkg }}"
     dest: "{{ backinator_bin_dir }}"
     copy: no
