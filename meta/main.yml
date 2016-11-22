@@ -34,9 +34,9 @@ galaxy_info:
   #  - 6
   #  - 7
   - name: GenericUNIX
-   versions:
-   - all
-   - any
+    versions:
+      - all
+      - any
   #- name: OpenBSD
   #  versions:
   #  - all
