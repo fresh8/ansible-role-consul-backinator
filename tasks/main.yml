@@ -1,0 +1,20 @@
+---
+# tasks file for kostyrevaa.consul-backinator
+
+- name: install deps
+  package:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - unzip
+
+- name: Download consul-backinator binary
+  get_url:
+    url:  "{{ backinator_pkg_url }}"
+    dest: "{{ backinator_download_dir }}/{{ backinator_pkg }}"
+
+- name: Unzip consul-backinator to installation directory
+  unarchive: 
+    src:  "{{ backinator_download_dir }}/{{ backinator_pkg }}"
+    dest: "{{ backinator_bin_dir }}"
+    copy: no
