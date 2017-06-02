@@ -21,4 +21,6 @@ if [[ -z "$GS_BUCKET" ]]; then
   exit 1
 fi
 
-gsutil cp consul.bak consul.bak.sig gs://$GS_BUCKET/
+bdate=$(date +%Y%m%d_%H%M)
+gsutil cp consul.bak gs://$GS_BUCKET/consul_$bdate.bak
+gsutil cp consul.bak.sig gs://$GS_BUCKET/consul_$bdate.bak.sig
