@@ -1,7 +1,7 @@
 ---
 # defaults file for kostyrevaa.consul-backinator
-backinator_version: 1.4
+backinator_version: 1.6
 backinator_pkg: "consul-backinator-{{ backinator_version }}-amd64-linux.zip"
 backinator_pkg_url: "https://github.com/myENA/consul-backinator/releases/download/v{{ backinator_version }}/{{ backinator_pkg }}"
 backinator_bin_dir: /usr/local/bin
-backinator_download_dir: /root
+backinator_download_dir: /tmp
