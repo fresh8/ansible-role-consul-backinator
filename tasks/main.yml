@@ -20,3 +20,17 @@
     mode: a+rx
     src:  "{{ backinator_download_dir }}/consul-backinator-{{ backinator_version }}-amd64-linux/consul-backinator-{{ backinator_version }}"
     dest: "{{ backinator_bin_dir }}/consul-backinator"
+
+- name: Install consul-backinator-gs wrapper script
+  when: backinator_gs_bucket is not none
+  copy:
+    src: consul-backinator-gs
+    dest: "{{ backinator_bin_dir }}/consul-backinator-gs"
+    mode: a+rx
+
+- name: Configure consul-backinator-gs
+  when: backinator_gs_bucket is not none
+  copy:
+    content: "GS_BUCKET={{ backinator_gs_bucket }}"
+    dest: "/etc/default/consul-backinator-gs"
+    mode: a+r
