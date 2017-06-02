@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+set -e
+varsfile=/etc/default/consul-backinator-gs
+tdir=$(mktemp -d)
+cd $tdir
+
+consul-backinator $@
+if [[ ! -f consul.bak ]]; then
+  exit 0
+fi
+
+if [[ ! -f $varsfile ]]; then
+  >&2 echo "You need to create /etc/default/consul-backinator-gs and set GS_BUCKET in it"
+  exit 1
+fi
+
+source $varsfile
+
+if [[ -z "$GS_BUCKET" ]]; then
+  >&2 echo "You need to set GS_BUCKET to the backups Google Cloud Storage bucket in /etc/default/consul-backinator-gs"
+  exit 1
+fi
+
+gsutil cp consul.bak consul.bak.sig gs://$GS_BUCKET/
