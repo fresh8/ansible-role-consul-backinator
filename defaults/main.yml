@@ -5,6 +5,7 @@ backinator_pkg: "consul-backinator-{{ backinator_version }}-amd64-linux.zip"
 backinator_pkg_url: "https://github.com/myENA/consul-backinator/releases/download/v{{ backinator_version }}/{{ backinator_pkg }}"
 backinator_bin_dir: /usr/local/bin
 backinator_download_dir: /tmp
+backinator_gs_prefix: consul
 
 # Google Cloud Storage backup options
 # consul.bak and consul.bak.sig will be copied to this bucket when
