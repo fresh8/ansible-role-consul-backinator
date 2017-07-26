@@ -4,7 +4,7 @@ varsfile=/etc/default/consul-backinator-gs
 tdir=$(mktemp -d)
 cd $tdir
 
-consul-backinator $@
+{{ backinator_bin_dir }}/consul-backinator $@
 if [[ ! -f consul.bak ]]; then
   exit 0
 fi
