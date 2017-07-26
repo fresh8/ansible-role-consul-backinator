@@ -22,5 +22,5 @@ if [[ -z "$GS_BUCKET" ]]; then
 fi
 
 bdate=$(date +%Y%m%d_%H%M)
-gsutil cp consul.bak gs://$GS_BUCKET/consul_$bdate.bak
-gsutil cp consul.bak.sig gs://$GS_BUCKET/consul_$bdate.bak.sig
+gsutil cp consul.bak gs://$GS_BUCKET/{{ backinator_gs_prefix }}_$bdate.bak
+gsutil cp consul.bak.sig gs://$GS_BUCKET/{{ backinator_gs_prefix }}_$bdate.bak.sig
